@@ -17,11 +17,23 @@ function App() {
   };
 
   const operationChangeHandler = (e) => {
-    dispatchState({ type: "CHANGE_OPERATION", payload: Number(e.target.value) });
+    dispatchState({ type: "CHANGE_OPERATION", payload: e.target.value });
   };
 
   const onClickClearOperation = () => {
     dispatchState({ type: "CLEAR_DISPLAY" });
+  }
+
+  const onMemoryRecall = () => {
+    dispatchState({ type: "MEMORY_RECALL" });
+  }
+
+  const onMemoryPlus = () => {
+    dispatchState({ type: "MEMORY_PLUS" });
+  }
+  
+  const onMemoryClear = () => {
+    dispatchState({ type: "MEMORY_CLEAR" });
   }
   return (
     <div className="App">
@@ -40,9 +52,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton  value={"M+"} />
-              <CalcButton  value={"MR"} />
-              <CalcButton  value={"MC"} />
+              <CalcButton onClick={onMemoryRecall}  value={"M+"} />
+              <CalcButton onClick={onMemoryPlus} value={"MR"} />
+              <CalcButton onClick={onMemoryClear} value={"MC"} />
             </div>
 
             <div className="row">
